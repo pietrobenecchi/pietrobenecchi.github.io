@@ -19,7 +19,7 @@ python3 -m http.server 8000
 
 ## TODO
 
-- [ ] **Add the CV**: put the PDF at `assets/cv.pdf`. The "CV" button in the hero already links there and returns 404 until the file exists.
+- [ ] **Add the CV**: put the PDF at `assets/cv.pdf`. The CV icon and the Contact link already point there and returns 404 until the file exists.
 - [ ] **Add the email** in the Contact section of `index.html` (see the `TODO` comment there).
 - [ ] **Publications**: add the title and link of the SEAMS paper (Distinguished Paper Award) and of the poster at the 3rd FPGA Developers' Forum, CERN (see the `TODO` comments in `index.html`).
 - [ ] **Add a photo**: save it as `assets/avatar.jpg` and replace the "PB" initials circle in the About section (see the `TODO` comment in `index.html`).
