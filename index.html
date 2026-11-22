@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pietro Benecchi — ML compilers · HLS · Edge-AI inference</title>
+  <meta name="description" content="Pietro Benecchi — MSc student in Computer Science &amp; Engineering at Politecnico di Milano working on ML compilers, high-level synthesis and edge-AI inference on FPGAs, MCUs and GPUs.">
+  <meta name="author" content="Pietro Benecchi">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="canonical" href="https://pietrobenecchi.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pietrobenecchi.github.io/">
+  <meta property="og:title" content="Pietro Benecchi — ML compilers · HLS · Edge-AI inference">
+  <meta property="og:description" content="MSc student at Politecnico di Milano working where machine learning meets hardware: compilers, high-level synthesis and inference on constrained devices.">
+  <meta property="og:site_name" content="Pietro Benecchi">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="nav-brand" href="#top" aria-label="Pietro Benecchi, back to top">PB</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
+      <p class="mono kicker">~/pietrobenecchi</p>
+      <h1 id="hero-title">Pietro Benecchi</h1>
+      <p class="tagline mono">ML compilers <span aria-hidden="true">·</span> High-level synthesis <span aria-hidden="true">·</span> Edge-AI inference</p>
+      <p class="lead">MSc student in Computer Science &amp; Engineering at Politecnico di Milano, graduating Dec 2026.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/pietrobenecchi" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pietro-benecchi-07078321b" rel="noopener">LinkedIn</a>
+        <a class="btn" href="assets/cv.pdf" type="application/pdf">Download CV</a>
+      </div>
+    </section>
+
+    <section class="section container" id="about" aria-labelledby="about-title">
+      <h2 id="about-title"><span class="mono num" aria-hidden="true">01</span> About</h2>
+      <div class="prose">
+        <p>I work where machine learning meets hardware: compilers, high-level synthesis and inference on constrained devices — FPGAs, microcontrollers and GPUs.</p>
+        <p>My MSc thesis is on FPGA acceleration of LLM inference, supervised by Prof. Fabrizio Ferrandi, in collaboration with CERN as part of the Edge SpAIce project.</p>
+        <p>I'm looking for roles in edge AI, ML compilers and inference hardware, and I'm open to relocation. Based in Milan, Italy.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title"><span class="mono num" aria-hidden="true">02</span> Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>StreaMatrix</h3>
+          <p class="card-sub">PyTorch → FPGA compilation flow</p>
+          <ul class="tags" aria-label="Stack">
+            <li>MLIR</li><li>LLVM</li><li>PandA-Bambu</li>
+          </ul>
+          <ul class="bullets">
+            <li>MLIR pipeline based on Stream-HLS that lowers PyTorch models to LLVM IR and uses PandA-Bambu as the synthesis backend for hls4ml, generating Verilog for Xilinx UltraScale+ (xcu250).</li>
+            <li>Custom MLIR passes for <code>linalg.matmul</code>: tiling, parallelisation of vector reductions, fusion of tiles into parallel <code>llvm.matrix.multiply</code> calls, and load hoisting.</li>
+            <li>Load/compute/store restructuring took an 8×8 GEMM kernel from 93 to 27 FSM states, with 0 conflicts and 0 BRAM. Fixed a false conflict in Bambu's module binding and built a design-space exploration flow over parallelism parameters.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>GPU sequence-to-graph alignment</h3>
+          <p class="card-sub">Politecnico di Milano · with GenoGra</p>
+          <ul class="tags" aria-label="Stack">
+            <li>CUDA</li>
+          </ul>
+          <ul class="bullets">
+            <li>CUDA acceleration of Theseus, an affine-gap sequence-to-graph aligner (an extension of WFA) for pangenomics.</li>
+            <li>Distributed the kernel's serial phases across the thread block: up to <strong>3.07×</strong> speedup at 256 threads.</li>
+            <li>Profiled down to the remaining bottleneck: DRAM bandwidth.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Zant</h3>
+          <p class="card-sub">TinyML on microcontrollers</p>
+          <ul class="tags" aria-label="Stack">
+            <li>Zig</li><li>ONNX</li>
+          </ul>
+          <ul class="bullets">
+            <li>Open-source SDK that maps ONNX models onto embedded MCUs.</li>
+            <li>Worked on the ONNX quantization pipeline (PTQ/QAT, QDQ fusion patterns) and deployment on Arduino Nicla Vision.</li>
+            <li>Coordinated tasks in an international community of ~40 contributors.</li>
+          </ul>
+          <a class="card-link mono" href="https://github.com/ZantFoundation/Z-Ant" rel="noopener">github.com/ZantFoundation/Z-Ant <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card">
+          <h3>Codex Naturalis</h3>
+          <p class="card-sub">Full-stack implementation of the board game</p>
+          <ul class="tags" aria-label="Stack">
+            <li>Java</li><li>OOP</li>
+          </ul>
+          <ul class="bullets">
+            <li>Full-stack Java implementation of the board game.</li>
+            <li>Team lead of a 4-person team; responsible for the object-oriented design.</li>
+          </ul>
+          <a class="card-link mono" href="https://github.com/pietrobenecchi/CodexNaturalis" rel="noopener">github.com/pietrobenecchi/CodexNaturalis <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card">
+          <h3>Digital Logic Design</h3>
+          <p class="card-sub">Hardware module in VHDL</p>
+          <ul class="tags" aria-label="Stack">
+            <li>VHDL</li>
+          </ul>
+          <ul class="bullets">
+            <li>Clocked VHDL module interfacing with a memory unit: reads sequences of data words, replaces missing values with the most recent valid one and computes a dynamically updated "credibility" value for each word.</li>
+            <li>Awarded the maximum grade for correctness, performance and adherence to the specification.</li>
+          </ul>
+          <a class="card-link mono" href="https://github.com/pietrobenecchi/Digital-logic-design" rel="noopener">github.com/pietrobenecchi/Digital-logic-design <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title"><span class="mono num" aria-hidden="true">03</span> Experience &amp; Education</h2>
+      <ol class="timeline">
+        <li>
+          <p class="when mono">Expected Dec 2026</p>
+          <h3>MSc Computer Science &amp; Engineering</h3>
+          <p class="where">Politecnico di Milano · GPA 28/30</p>
+        </li>
+        <li>
+          <p class="when mono">Thesis work</p>
+          <h3>Contributions to hls4ml (CERN) and PandA-Bambu</h3>
+          <p class="where">FPGA acceleration of LLM inference</p>
+        </li>
+        <li>
+          <p class="when mono">Since Feb 2025</p>
+          <h3>Contributor, Zant</h3>
+          <p class="where">Open-source TinyML SDK</p>
+        </li>
+        <li>
+          <p class="when mono">Jan – Jun 2025</p>
+          <h3>Erasmus exchange</h3>
+          <p class="where">Malmö University, Sweden · Advanced Machine Learning; AI &amp; Data Management for IoT</p>
+        </li>
+        <li>
+          <p class="when mono">2021 – 2024</p>
+          <h3>BSc Computer Engineering</h3>
+          <p class="where">Politecnico di Milano</p>
+        </li>
+        <li>
+          <p class="when mono">Student association</p>
+          <h3>Member, Polimi Data Scientists</h3>
+        </li>
+      </ol>
+
+      <h3 class="subhead" id="publications">Publications</h3>
+      <ul class="pubs">
+        <!-- TODO: add the SEAMS paper title and a link to the paper -->
+        <li>
+          <p>Co-author, paper at <strong>SEAMS</strong> — <span class="award">Distinguished Paper Award</span></p>
+        </li>
+        <!-- TODO: add the poster title and a link to the poster -->
+        <li>
+          <p>Co-author, poster at the <strong>3rd FPGA Developers' Forum</strong>, CERN</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section container" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title"><span class="mono num" aria-hidden="true">04</span> Skills</h2>
+      <dl class="skills">
+        <div>
+          <dt>Languages</dt>
+          <dd><ul class="tags"><li>C</li><li>C++</li><li>CUDA</li><li>Zig</li><li>Python</li><li>Java</li><li>VHDL</li></ul></dd>
+        </div>
+        <div>
+          <dt>Compilers &amp; HLS</dt>
+          <dd><ul class="tags"><li>MLIR</li><li>LLVM</li><li>PandA-Bambu</li><li>Vitis HLS</li><li>hls4ml</li></ul></dd>
+        </div>
+        <div>
+          <dt>ML</dt>
+          <dd><ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>ONNX</li></ul></dd>
+        </div>
+        <div>
+          <dt>Tooling</dt>
+          <dd><ul class="tags"><li>Linux</li><li>Git</li><li>CI/CD</li></ul></dd>
+        </div>
+        <div>
+          <dt>Spoken</dt>
+          <dd><ul class="tags"><li>Italian (native)</li><li>English (proficient)</li><li>German (basic)</li></ul></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section container" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title"><span class="mono num" aria-hidden="true">05</span> Contact</h2>
+      <p class="prose">The best way to reach me is on LinkedIn. My code lives on GitHub.</p>
+      <ul class="contact-list">
+        <li><span class="mono label">LinkedIn</span> <a href="https://www.linkedin.com/in/pietro-benecchi-07078321b" rel="noopener">linkedin.com/in/pietro-benecchi-07078321b</a></li>
+        <li><span class="mono label">GitHub</span> <a href="https://github.com/pietrobenecchi" rel="noopener">github.com/pietrobenecchi</a></li>
+        <!-- TODO: add email, e.g. <li><span class="mono label">Email</span> <a href="mailto:...">...</a></li> -->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Pietro Benecchi</p>
+    </div>
+  </footer>
+</body>
+</html>

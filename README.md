@@ -1,16 +1,25 @@
-## Hi there 👋
+# pietrobenecchi.github.io
 
-<!--
-**pietrobenecchi/pietrobenecchi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Personal portfolio site of Pietro Benecchi, served by GitHub Pages at
+<https://pietrobenecchi.github.io/>.
 
-Here are some ideas to get you started:
+It is a plain static site with no build step and no dependencies:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- `index.html`: the whole single-page site
+- `assets/style.css`: styles (dark theme, system fonts)
+- `assets/favicon.svg`: "PB" favicon
+- `.nojekyll`: tells GitHub Pages to serve the files as they are, without Jekyll
+
+## View locally
+
+```sh
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
+
+## TODO
+
+- [ ] **Add the CV**: put the PDF at `assets/cv.pdf`. The "CV" button in the hero already links there and returns 404 until the file exists.
+- [ ] **Add the email** in the Contact section of `index.html` (see the `TODO` comment there).
+- [ ] **Publications**: add the title and link of the SEAMS paper (Distinguished Paper Award) and of the poster at the 3rd FPGA Developers' Forum, CERN (see the `TODO` comments in `index.html`).
+- [ ] Optional: add an `og:image` (PNG, 1200×630) for nicer link previews.
